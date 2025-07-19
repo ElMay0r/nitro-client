@@ -19,6 +19,7 @@ import { RoomWidgetChatTypingMessage } from '../messages/RoomWidgetChatTypingMes
             </div>
         </div>
         <nitro-room-chatinput-styleselector-component (styleSelected)="onStyleSelected($event)"></nitro-room-chatinput-styleselector-component>
+        <nitro-room-chatinput-emojiselector-component (emojiSelected)="onEmojiSelected($event)"></nitro-room-chatinput-emojiselector-component>
     </div>`
 })
 export class RoomChatInputComponent extends ConversionTrackingWidget implements OnInit, OnDestroy, AfterViewInit
@@ -283,6 +284,22 @@ export class RoomChatInputComponent extends ConversionTrackingWidget implements 
         this.currentStyle       = styleId;
         this.needsStyleUpdate   = true;
     }
+    public onEmojiSelected(emoji: string): void
+    {
+        const input = (this.chatInputView && this.chatInputView.nativeElement);
+
+        if(!input) return;
+
+        input.value = (input.value + emoji);
+        input.parentElement.dataset.value = input.value;
+
+        this.lastContent = input.value;
+        this.isTyping = true;
+        this.startTypingTimer();
+        this.startIdleTimer();
+        this.setInputFocus();
+    }
+
 
     private sendChatFromInputField(shiftKey: boolean = false): void
     {

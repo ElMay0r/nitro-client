@@ -1,0 +1,48 @@
+.nitro-room-chatinput-emojiselector-component {
+    display: flex;
+    position: relative;
+    right: 55px;
+    pointer-events: all;
+    height: 100%;
+
+    i.icon {
+        cursor: pointer;
+        align-self: center;
+    }
+
+    .nitro-emojiselector {
+        position: absolute;
+        width: 200px;
+        top: -4px;
+        transition: transform 0.22s ease-in-out;
+        transform: translate(-50%, -50%) scale(0);
+
+        &.active {
+            visibility: visible;
+            transform: translate(-50%, -100%) scale(1);
+        }
+
+        .grid-container {
+
+            .grid-items {
+                margin-top: -7px;
+
+                .item-detail {
+                    height: 30px;
+                    max-height: 30px;
+                    width: calc(1 / 5 * 100% - (1 - 1 / 5) * 7px);
+                    margin: 7px 7px 0 0;
+                    overflow: visible;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    .emoji {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -12,6 +12,7 @@ import { RoomAvatarInfoRentableBotComponent } from './widgets/avatarinfo/compone
 import { RoomChatInputComponent } from './widgets/chatinput/component';
 import { RoomChatInputStyleSelectorComponent } from './widgets/chatinput/styleselector/component';
 import { ChooserWidgetBaseComponent } from './widgets/choosers/base/base.component';
+import { RoomChatInputEmojiSelectorComponent } from './widgets/chatinput/emojiselector/component';
 import { ChooserWidgetFurniComponent } from './widgets/choosers/furni/furni.component';
 import { ChooserWidgetUserComponent } from './widgets/choosers/user/user.component';
 import { FriendRequestDialogComponent } from './widgets/friendrequest/components/dialog/dialog.component';
@@ -52,6 +53,7 @@ import { FloorplanModule } from './floorplan/floorplan.module';
         RoomChatComponent,
         RoomChatItemComponent,
         RoomChatInputStyleSelectorComponent,
+        RoomChatInputEmojiSelectorComponent,
         RoomInfoStandMainComponent,
         RoomInfoStandBotComponent,
         RoomInfoStandFurniComponent,
@@ -96,6 +98,7 @@ import { FloorplanModule } from './floorplan/floorplan.module';
         RoomChatComponent,
         RoomChatItemComponent,
         RoomChatInputStyleSelectorComponent,
+        RoomChatInputEmojiSelectorComponent,
         RoomInfoStandMainComponent,
         RoomInfoStandBotComponent,
         RoomInfoStandFurniComponent,
