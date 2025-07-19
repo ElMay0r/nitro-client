@@ -17,17 +17,17 @@ Nitro Client is an Angular front-end that integrates with the `@nitrots/nitro-re
 ## Configuration
 Runtime options are read from `.env`, `src/renderer-config.json`, and `src/ui-config.json`. These values are provided to the application via the global `NitroConfig` object in `src/index.html`.
 
-## Linting and Style
-- Run `yarn eslint` to check and auto-fix lint issues.
-- ESLint rules are defined in `.eslintrc.json` and include:
+## Code Style
+- ESLint is not used. Do not run `yarn eslint`.
+- Follow `.editorconfig` for formatting rules:
   - 4 space indentation
   - single quotes
   - semicolons
   - Allman brace style
-- `.editorconfig` mirrors these settings (indent_size 4, single quotes, trim trailing whitespace).
+
 
 ## Continuous Integration
-`.gitlab-ci.yml` installs dependencies, runs ESLint on `src/`, then builds the project. Ensure `yarn eslint` succeeds before committing.
+`.gitlab-ci.yml` installs dependencies and builds the project.
 
 ## Repository Layout
 - `src/app/` – Angular modules and components.
@@ -37,7 +37,7 @@ Runtime options are read from `.env`, `src/renderer-config.json`, and `src/ui-co
 - `src/main.ts` – application bootstrap.
 
 ## Additional Notes
-- There are no unit tests. Linting is used to enforce style.
+- There are no unit tests.
 - SCSS is the default style format for Angular components.
 
 Follow these guidelines for any code modifications or troubleshooting within this repository.
