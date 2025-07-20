@@ -223,7 +223,30 @@ export class MusicController implements IMusicController
 
     public samplesUnloaded(_arg_1: number[]): void
     {
-        throw new Error('Method not implemented.');
+        if(!_arg_1 || !_arg_1.length) return;
+
+        for(const songId of _arg_1)
+        {
+            if(this._requestedSongs.has(songId))
+            {
+                this._requestedSongs.delete(songId);
+            }
+
+            if(this._availableSongs.has(songId))
+            {
+                this._availableSongs.delete(songId);
+            }
+
+            for(let i = 0; i < this._songRequestsPerPriority.length; i++)
+            {
+                const request = this._songRequestsPerPriority[i];
+
+                if(request && request.songId === songId)
+                {
+                    this._songRequestsPerPriority[i] = undefined;
+                }
+            }
+        }
     }
 
     protected onTraxSongComplete(k: SoundManagerEvent): void
