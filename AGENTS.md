@@ -39,5 +39,6 @@ Runtime options are read from `.env`, `src/renderer-config.json`, and `src/ui-co
 ## Additional Notes
 - There are no unit tests.
 - SCSS is the default style format for Angular components.
+- the renderer comunicates with the Habbo Emulator in Java repo: https://git.krews.org/morningstar/Arcturus-Community
 
 Follow these guidelines for any code modifications or troubleshooting within this repository.
