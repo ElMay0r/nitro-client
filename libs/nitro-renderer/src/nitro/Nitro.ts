@@ -5,6 +5,7 @@ import { IAvatarRenderManager, IEventDispatcher, ILinkEventTracker, INitroCommun
 import { ConfigurationEvent, EventDispatcher, NitroCore } from '../core';
 import { NitroEvent, RoomEngineEvent } from '../events';
 import { GetTicker, PixiApplicationProxy } from '../pixi-proxy';
+import { Ticker } from '@pixi/ticker';
 import { RoomManager } from '../room';
 import { AvatarRenderManager } from './avatar';
 import { RoomCameraWidgetManager } from './camera';
@@ -336,6 +337,11 @@ export class Nitro implements INitro
     public get soundManager(): ISoundManager
     {
         return this._soundManager;
+    }
+
+    public get ticker(): Ticker
+    {
+        return GetTicker();
     }
 
     public get width(): number

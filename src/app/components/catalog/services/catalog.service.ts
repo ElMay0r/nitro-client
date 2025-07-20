@@ -266,8 +266,7 @@ export class CatalogService implements OnDestroy
 
         if(!parser) return;
 
-        // TODO: Is this even right? 1 day too less?
-        this._purse.clubDays = Math.max(0, parser.daysToPeriodEnd);
+        this._purse.clubDays = Math.max(0, (parser.daysToPeriodEnd + 1));
         this._purse.clubPeriods = Math.max(0, parser.memberPeriods);
         this._purse.isVip = parser.isVip;
         this._purse.pastClubDays = parser.pastClubDays;
@@ -324,18 +323,15 @@ export class CatalogService implements OnDestroy
 
         if(this._settingsService.catalogVisible)
         {
-            const description = '${catalog.alert.voucherredeem.ok.description}';
+            let descriptionKey = 'catalog.alert.voucherredeem.ok.description';
+
             if(parser.productName !== '')
             {
-                //TODO: Don't have any use (emulator-side is always empty, but leave this code to use in the future)
-                /*description = 'catalog.alert.voucherredeem.ok.description.furni';
-
-                Nitro.instance.localization.registerParameter(description, 'productName', parser.productName);
-
-                description = '${' + description + '}';*/
+                descriptionKey = 'catalog.alert.voucherredeem.ok.description.furni';
+                Nitro.instance.localization.registerParameter(descriptionKey, 'productName', parser.productName);
             }
 
-            this._notificationService.alert(description, '${catalog.alert.voucherredeem.ok.title}');
+            this._notificationService.alert('${' + descriptionKey + '}', '${catalog.alert.voucherredeem.ok.title}');
         }
     }
 
